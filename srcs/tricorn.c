@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:55:03 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 09:32:49 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:46:41 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_iteration_tricorn(t_complex z, int x, int y, t_display *mlx)
 		z = result;
 		mlx->it++;
 	}
-	return (mlx->it * 1000);
+	return (mlx->it * 10);
 }
 
 void	lighting_pixels_tricorn(t_display *mlx)

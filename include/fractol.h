@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:27:44 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 10:32:52 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/11 17:01:09 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <mlx.h>
 # include "./libft/libft.h"
 
-# define WIDTH				800	
-# define HEIGHT				800	
+# define WIDTH				1200	
+# define HEIGHT				1200	
 # define KeyPressMask		1L<<0
 # define ButtonPressMask	1L<<2
 # define NoEventMask		0L
@@ -73,6 +73,7 @@ typedef struct d_display{
 	int		fix_julia_pos;
 	int		fract;
 	int		help;
+	int		julia_static;
 	t_img	*img;
 	t_color	*color;
 }				t_display;
@@ -82,9 +83,13 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 t_display	*mlx_initialization(void);
 void		value_sitting(t_display *mlx);
 void		mandelbrot(t_display *mlx);
-void		julia(t_display *mlx);
+void		julia(t_display *mlx, int par);
+// void		lighting_pixels_fixed_julia(t_display *mlx, int par);
+t_complex   julia_orient(t_display *mlx, int par);
+// void		julia(t_display *mlx);
 void		fern(t_display *mlx);
 void		lighting_pixels_man(t_display *mlx);
+// void		lighting_pixels_julia(t_display *mlx);
 void		lighting_pixels_julia(t_display *mlx);
 void		lighting_pixels_fern(t_display *mlx);
 int			ft_iteration_man(t_complex z, int x, int y, t_display *mlx);

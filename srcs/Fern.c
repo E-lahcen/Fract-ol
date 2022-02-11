@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:29:13 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/10 17:55:58 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:08:20 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_iteration_fern(t_complex *c, t_display *mlx)
 			c->imag = -0.04f * c->real + 0.85f * c->imag + 1.6f;
 		}
 		d = (t_complex) {.real = (c->real + 3) * 70, .imag = 800 - c->imag * 70};
-		pixels_image(mlx, d.real + 300, d.imag - 50, 0x00FF00);
+		pixels_image(mlx, d.real + 300, d.imag - 50, coloring_pixels(mlx));
 	}
 }
 

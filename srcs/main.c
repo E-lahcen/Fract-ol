@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:13:34 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 09:31:43 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/11 17:33:01 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_display	*mlx;
+	int			nb;
 
 	mlx = NULL;
 	if (ac == 2)
@@ -22,13 +23,19 @@ int	main(int ac, char **av)
 		if (ft_strncmp(av[1], "Mandelbrot", 11) == 0)
 			mandelbrot(mlx);
 		else if (ft_strncmp(av[1], "Julia", 6) == 0)
-			julia(mlx);
+			julia(mlx, 6);
 		else if (ft_strncmp(av[1], "Fern", 5) == 0)
 			fern(mlx);
 		else if (ft_strncmp(av[1], "Tricorn", 8) == 0)
-			tricorn(mlx);		
+			tricorn(mlx);
 		else
 			return (help_message());
+	}
+	else if (ac == 3)
+	{
+		nb = ft_atoi(av[2]);
+		if (ft_strncmp(av[1], "Julia", 6) == 0 && nb >= 0 && nb < 6)
+			julia(mlx, nb);
 	}
 	help_message();
 	return (0);
@@ -36,8 +43,9 @@ int	main(int ac, char **av)
 
 int	help_message(void)
 {
-	return (printf("Unvalid fractal !!\n*****************\
+	ft_putstr_fd("Unvalid fractal !!\n*****************\
 			You can choose one of those:\
 			*****************\n\
-			\n1-Mandelbrot\n	\n2-Julia\n	\n3-Fern\n\n4-Tricorn\n\n"));
+			\nMandelbrot\n	\nJulia[fixed:0-5]\n	\nFern\n\nTricorn\n\n", 0);
+	return (0);
 }

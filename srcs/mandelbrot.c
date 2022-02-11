@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:27:34 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 09:28:50 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:50:58 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_iteration_man(t_complex z, int x, int y, t_display *mlx)
 		z = result;
 		mlx->it++;
 	}
-	return (mlx->it * 1000);
+	return (mlx->it * 10);
 }
 
 void	lighting_pixels_man(t_display *mlx)
