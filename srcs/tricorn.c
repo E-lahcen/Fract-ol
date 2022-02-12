@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:55:03 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 11:46:41 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:50:28 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_iteration_tricorn(t_complex z, int x, int y, t_display *mlx)
 		z = result;
 		mlx->it++;
 	}
-	return (mlx->it * 10);
+	return (mlx->it);
 }
 
 void	lighting_pixels_tricorn(t_display *mlx)
@@ -50,8 +50,8 @@ void	lighting_pixels_tricorn(t_display *mlx)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img->img, 0, 0);
-	mlx_string_put(mlx->init, mlx->win, 5, 0, 0xffffff, "Press space for help");
+	mlx_put_image_to_window(mlx->img.init, mlx->img.win, mlx->img.img, 0, 0);
+	mlx_string_put(mlx->img.init, mlx->img.win, 5, 0, 0xffffff, "Press space for help");
 	if (mlx->help)
 		ft_help(mlx);
 }

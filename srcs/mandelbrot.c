@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:27:34 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 11:50:58 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/12 20:31:03 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	ft_iteration_man(t_complex z, int x, int y, t_display *mlx)
 		z = result;
 		mlx->it++;
 	}
-	return (mlx->it * 10);
+	return (mlx->it);
 }
 
-void	lighting_pixels_man(t_display *mlx)
+int	lighting_pixels_man(t_display *mlx)
 {
 	int			x;
 	int			y;
@@ -50,22 +50,23 @@ void	lighting_pixels_man(t_display *mlx)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img->img, 0, 0);
-	mlx_string_put(mlx->init, mlx->win, 5, 0, 0xffffff, "Press space for help");
+	mlx_put_image_to_window(mlx->img.init, mlx->img.win, mlx->img.img, 0, 0);
+	mlx_string_put(mlx->img.init, mlx->img.win, 5, 0, 0xffffff, "Press space for help");
 	if (mlx->help)
 		ft_help(mlx);
+	return (0);
 }
 
 void ft_help(t_display *mlx)
 {
-	mlx_clear_window(mlx->init, mlx->win);
-	mlx_string_put(mlx->init, mlx->win, 220, 200, 0xFFFF00, "---------- Fract'ol !! ---------");
-	mlx_string_put(mlx->init, mlx->win, 200, 250, 0xffffff, "use the mouse wheel to zoom in & out");
-	mlx_string_put(mlx->init, mlx->win, 200, 300, 0xffffff, "hey you can change the color");
-	mlx_string_put(mlx->init, mlx->win, 200, 350, 0xffffff, "to change the value of Red use r/t");
-	mlx_string_put(mlx->init, mlx->win, 200, 400, 0xffffff, "to change the value of Green use g/h");
-	mlx_string_put(mlx->init, mlx->win, 200, 450, 0xffffff, "to change the value of Blue use b/n");
-	mlx_string_put(mlx->init, mlx->win, 200, 500, 0xffffff, "use the arrows to move the image ");
-	mlx_string_put(mlx->init, mlx->win, 200, 550, 0xffffff, "close help by pressing the space bar");
-	mlx_string_put(mlx->init, mlx->win, 220, 600, 0xFFFF00, "----------- Fract'ol !! ---------");
+	mlx_clear_window(mlx->img.init, mlx->img.win);
+	mlx_string_put(mlx->img.init, mlx->img.win, 220, 200, 0xFFFF00, "---------- Fract'ol !! ---------");
+	mlx_string_put(mlx->img.init, mlx->img.win, 200, 250, 0xffffff, "Use the mouse wheel to zoom in & out");
+	mlx_string_put(mlx->img.init, mlx->img.win, 200, 300, 0xffffff, "Hey you can change the color");
+	mlx_string_put(mlx->img.init, mlx->img.win, 200, 350, 0xffffff, "		Change Red with r/t");
+	mlx_string_put(mlx->img.init, mlx->img.win, 200, 400, 0xffffff, "		Change Green with g/h");
+	mlx_string_put(mlx->img.init, mlx->img.win, 200, 450, 0xffffff, "		Change Blue with b/n");
+	mlx_string_put(mlx->img.init, mlx->img.win, 200, 500, 0xffffff, "Use the arrows to move the image ");
+	mlx_string_put(mlx->img.init, mlx->img.win, 200, 550, 0xffffff, "Close help by pressing the space bar");
+	mlx_string_put(mlx->img.init, mlx->img.win, 220, 600, 0xFFFF00, "----------- Fract'ol !! ---------");
 }

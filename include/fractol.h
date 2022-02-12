@@ -6,19 +6,18 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:27:44 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 17:01:09 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:41:50 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_H
 # define FRACT_H
 
-# include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
 # include <math.h>
 # include <mlx.h>
 # include "./libft/libft.h"
+#include <stdio.h>
 
 # define WIDTH				1200	
 # define HEIGHT				1200	
@@ -39,6 +38,8 @@ typedef struct d_color{
 }				t_color;
 
 typedef struct d_img {
+	void	*init;
+	void	*win;
 	void	*img;
 	char	*addr;
 	int		bpp;
@@ -60,8 +61,6 @@ typedef struct d_complex {
 }				t_complex;
 
 typedef struct d_display{
-	void	*init;
-	void	*win;
 	double	yscale;
 	double	xscale;
 	int		it;
@@ -74,22 +73,20 @@ typedef struct d_display{
 	int		fract;
 	int		help;
 	int		julia_static;
-	t_img	*img;
-	t_color	*color;
+	int		color_scheme[5000];
+	uint8_t	color_shift;
+	t_img	img;
+	t_color	color;
 }				t_display;
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
-t_display	*mlx_initialization(void);
-void		value_sitting(t_display *mlx);
+void		init_values(t_display *mlx);
 void		mandelbrot(t_display *mlx);
 void		julia(t_display *mlx, int par);
-// void		lighting_pixels_fixed_julia(t_display *mlx, int par);
 t_complex   julia_orient(t_display *mlx, int par);
-// void		julia(t_display *mlx);
 void		fern(t_display *mlx);
-void		lighting_pixels_man(t_display *mlx);
-// void		lighting_pixels_julia(t_display *mlx);
+int			lighting_pixels_man(t_display *mlx);
 void		lighting_pixels_julia(t_display *mlx);
 void		lighting_pixels_fern(t_display *mlx);
 int			ft_iteration_man(t_complex z, int x, int y, t_display *mlx);
@@ -100,6 +97,9 @@ void		pixels_image(t_display *mlx, int x, int y, int color);
 void		lighting_pixels_tricorn(t_display *mlx);
 int			ft_iteration_tricorn(t_complex z, int x, int y, t_display *mlx);
 void		tricorn(t_display *mlx);
+void		color_shift(t_display *mlx);
+void		set_color_array(t_display *mlx);
+int			calc_color(t_display *frctl, size_t i);
 
 int			key_event(int keysym, t_display *mlx);
 int			mouse_event(int button, int x, int y, t_display *mlx);

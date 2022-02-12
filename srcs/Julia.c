@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:29:52 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 17:26:33 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:50:18 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_iteration_julia(t_complex c, int x, int y, t_display *mlx)
 		z = result;
 		mlx->it++;
 	}
-	return (mlx->it * 10);
+	return (mlx->it);
 }
 
 t_complex    julia_orient(t_display *mlx, int par)
@@ -71,9 +71,9 @@ void	lighting_pixels_julia(t_display *mlx)
 		}
 		start_y++;
 	}
-	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img->img, 0, 0);
-	mlx_string_put(mlx->init, mlx->win, 5, 0, 0xffffff, "Press space for help");
-	mlx_string_put(mlx->init, mlx->win, 5, 20, 0xffffff, "Left click to fix julia");
+	mlx_put_image_to_window(mlx->img.init, mlx->img.win, mlx->img.img, 0, 0);
+	mlx_string_put(mlx->img.init, mlx->img.win, 5, 0, 0xffffff, "Press space for help");
+	mlx_string_put(mlx->img.init, mlx->img.win, 5, 20, 0xffffff, "Left click to fix julia");
 	if (mlx->help)
 		ft_help(mlx);
 }

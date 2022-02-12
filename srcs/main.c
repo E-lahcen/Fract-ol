@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:13:34 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 17:33:01 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/12 14:43:06 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int	main(int ac, char **av)
 {
-	t_display	*mlx;
+	t_display	mlx;
 	int			nb;
-
-	mlx = NULL;
+	
 	if (ac == 2)
 	{
 		if (ft_strncmp(av[1], "Mandelbrot", 11) == 0)
-			mandelbrot(mlx);
+			mandelbrot(&mlx);
 		else if (ft_strncmp(av[1], "Julia", 6) == 0)
-			julia(mlx, 6);
+			julia(&mlx, 6);
 		else if (ft_strncmp(av[1], "Fern", 5) == 0)
-			fern(mlx);
+			fern(&mlx);
 		else if (ft_strncmp(av[1], "Tricorn", 8) == 0)
-			tricorn(mlx);
+			tricorn(&mlx);
 		else
 			return (help_message());
 	}
@@ -35,7 +34,7 @@ int	main(int ac, char **av)
 	{
 		nb = ft_atoi(av[2]);
 		if (ft_strncmp(av[1], "Julia", 6) == 0 && nb >= 0 && nb < 6)
-			julia(mlx, nb);
+			julia(&mlx, nb);
 	}
 	help_message();
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:29:13 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 11:08:20 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/12 09:39:08 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_iteration_fern(t_complex *c, t_display *mlx)
 {
-	float 		rng;
+	float		rng;
 	t_complex	d;
 
-	rng =((float)rand()) / RAND_MAX;
+	rng = ((float)rand()) / RAND_MAX;
 	mlx->it = 0;
 	while (++mlx->it < mlx->max_it * 100)
 	{
@@ -42,7 +42,7 @@ void	ft_iteration_fern(t_complex *c, t_display *mlx)
 			c->real = 0.85f * c->real + 0.04f * c->imag;
 			c->imag = -0.04f * c->real + 0.85f * c->imag + 1.6f;
 		}
-		d = (t_complex) {.real = (c->real + 3) * 70, .imag = 800 - c->imag * 70};
+		d = (t_complex){.real = (c->real + 3) * 70, .imag = 800 - c->imag * 70};
 		pixels_image(mlx, d.real + 300, d.imag - 50, coloring_pixels(mlx));
 	}
 }
@@ -55,5 +55,5 @@ void	lighting_pixels_fern(t_display *mlx)
 	z.imag = 0.0;
 	ft_iteration_fern(&z, mlx);
 	ft_iteration_fern(&z, mlx);
-	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img->img, -(WIDTH / 4), 0);
+	mlx_put_image_to_window(mlx->img.init, mlx->img.win, mlx->img.img, -(WIDTH / 4), 0);
 }
