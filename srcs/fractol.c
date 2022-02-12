@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:27:23 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/11 16:46:17 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/12 14:56:27 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	mandelbrot(t_display *mlx)
 	&mlx->img->bpp, &mlx->img->line_len, &mlx->img->endian);
 	mlx_hook(mlx->win, 2, KeyPressMask, &key_event, mlx);
 	mlx_hook(mlx->win, 4, ButtonPressMask, &mouse_event, mlx);
-	mlx_hook(mlx->win, 17, NoEventMask, &destroy, NULL);
+	mlx_hook(mlx->win, 17, NoEventMask, &destroy, mlx);
 	mlx->fract = 1;
 	mlx_loop_hook(mlx->init, &hundle_no_event, mlx);
 	mlx_loop(mlx->init);
@@ -49,7 +49,7 @@ void	julia(t_display *mlx, int par)
 	mlx_hook(mlx->win, 2, KeyPressMask, &key_event, mlx);
 	mlx_hook(mlx->win, 4, ButtonPressMask, &mouse_event, mlx);
 	mlx_hook(mlx->win, 6, KeyPressMask, &mouse_cord, mlx);
-	mlx_hook(mlx->win, 17, NoEventMask, &destroy, NULL);
+	mlx_hook(mlx->win, 17, NoEventMask, &destroy, mlx);
 	mlx->fract = 2;
 	par += 10;
 	mlx_loop_hook(mlx->init, &hundle_no_event, mlx);
@@ -83,7 +83,7 @@ void	fern(t_display *mlx)
 	&mlx->img->bpp, &mlx->img->line_len, &mlx->img->endian);
 	mlx_hook(mlx->win, 2, KeyPressMask, &key_event, mlx);
 	mlx_hook(mlx->win, 4, ButtonPressMask, &mouse_event, mlx);
-	mlx_hook(mlx->win, 17, NoEventMask, &destroy, NULL);
+	mlx_hook(mlx->win, 17, NoEventMask, &destroy, mlx);
 	mlx->fract = 3;
 	mlx_loop_hook(mlx->init, &hundle_no_event, mlx);
 	mlx_loop(mlx->init);
@@ -99,7 +99,7 @@ void	tricorn(t_display *mlx)
 	&mlx->img->bpp, &mlx->img->line_len, &mlx->img->endian);
 	mlx_hook(mlx->win, 2, KeyPressMask, &key_event, mlx);
 	mlx_hook(mlx->win, 4, ButtonPressMask, &mouse_event, mlx);
-	mlx_hook(mlx->win, 17, NoEventMask, &destroy, NULL);
+	mlx_hook(mlx->win, 17, NoEventMask, &destroy, mlx);
 	mlx->fract = 4;
 	mlx_loop_hook(mlx->init, &hundle_no_event, mlx);
 	mlx_loop(mlx->init);
