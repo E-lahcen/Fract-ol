@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:13:34 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/12 14:43:06 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/13 10:56:24 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@ int	main(int ac, char **av)
 {
 	t_display	mlx;
 	int			nb;
-	
+
 	if (ac == 2)
 	{
 		if (ft_strncmp(av[1], "Mandelbrot", 11) == 0)
 			mandelbrot(&mlx);
 		else if (ft_strncmp(av[1], "Julia", 6) == 0)
 			julia(&mlx, 6);
-		else if (ft_strncmp(av[1], "Fern", 5) == 0)
-			fern(&mlx);
 		else if (ft_strncmp(av[1], "Tricorn", 8) == 0)
 			tricorn(&mlx);
 		else
@@ -45,6 +43,6 @@ int	help_message(void)
 	ft_putstr_fd("Unvalid fractal !!\n*****************\
 			You can choose one of those:\
 			*****************\n\
-			\nMandelbrot\n	\nJulia[fixed:0-5]\n	\nFern\n\nTricorn\n\n", 0);
+			\nMandelbrot\n	\nJulia[fixed:0-5]\n\nTricorn\n\n", 0);
 	return (0);
 }

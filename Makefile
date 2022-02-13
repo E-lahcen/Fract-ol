@@ -6,7 +6,7 @@
 #    By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/09 14:30:02 by lelhlami          #+#    #+#              #
-#    Updated: 2022/02/11 17:00:43 by lelhlami         ###   ########.fr        #
+#    Updated: 2022/02/13 11:54:55 by lelhlami         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,14 @@ OBJ_PATH  = objs
 LIBFT_SRC = include/libft
 
 SOURCES = 	main.c \
-			extra_mlx.c \
+			extra_helper.c \
 			hook.c \
 			mandelbrot.c \
 			color.c\
 			fractol.c \
 			Julia.c \
-			Fern.c \
-			tricorn.c
+			tricorn_bonus.c
+
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SOURCES))
 
@@ -54,7 +54,7 @@ CYAN        = \033[1;36m
 WHITE       = \033[1;37m
 
 
-all: lib tmp $(NAME) 
+all: lib tmp bonus $(NAME) 
 
 lib:
 	@echo "$(GREEN)Creating libft files$(CYAN)"

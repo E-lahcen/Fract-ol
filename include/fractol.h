@@ -6,24 +6,20 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:27:44 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/12 18:41:50 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/13 11:06:55 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACT_H
-# define FRACT_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
+
+# define WIDTH				1200	
+# define HEIGHT				1200	
 
 # include <unistd.h>
 # include <math.h>
 # include <mlx.h>
 # include "./libft/libft.h"
-#include <stdio.h>
-
-# define WIDTH				1200	
-# define HEIGHT				1200	
-# define KeyPressMask		1L<<0
-# define ButtonPressMask	1L<<2
-# define NoEventMask		0L
 
 typedef struct d_color{
 	int				r;
@@ -84,14 +80,11 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void		init_values(t_display *mlx);
 void		mandelbrot(t_display *mlx);
 void		julia(t_display *mlx, int par);
-t_complex   julia_orient(t_display *mlx, int par);
-void		fern(t_display *mlx);
+t_complex	julia_orient(t_display *mlx, int par);
 int			lighting_pixels_man(t_display *mlx);
 void		lighting_pixels_julia(t_display *mlx);
-void		lighting_pixels_fern(t_display *mlx);
 int			ft_iteration_man(t_complex z, int x, int y, t_display *mlx);
 int			ft_iteration_julia(t_complex c, int x, int y, t_display *mlx);
-void		ft_iteration_fern(t_complex *z, t_display *mlx);
 int			coloring_pixels(t_display *mlx);
 void		pixels_image(t_display *mlx, int x, int y, int color);
 void		lighting_pixels_tricorn(t_display *mlx);
@@ -100,6 +93,7 @@ void		tricorn(t_display *mlx);
 void		color_shift(t_display *mlx);
 void		set_color_array(t_display *mlx);
 int			calc_color(t_display *frctl, size_t i);
+void		common_init(t_display *mlx);
 
 int			key_event(int keysym, t_display *mlx);
 int			mouse_event(int button, int x, int y, t_display *mlx);

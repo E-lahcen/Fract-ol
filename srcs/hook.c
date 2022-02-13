@@ -6,7 +6,7 @@
 /*   By: lelhlami <lelhlami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 14:29:46 by lelhlami          #+#    #+#             */
-/*   Updated: 2022/02/12 20:33:46 by lelhlami         ###   ########.fr       */
+/*   Updated: 2022/02/13 11:53:34 by lelhlami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	mouse_event(int button, int x, int y, t_display *mlx)
 	}
 	if (button == 5 || button == 4)
 		hundle_mouse_event(button, x, y, mlx);
+	set_color_array(mlx);
 	hundle_no_event(mlx);
 	return (0);
 }
@@ -58,26 +59,14 @@ int	mouse_cord(int x, int y, t_display *mlx)
 
 void	hundle_key_event(int keysym, t_display *mlx)
 {
-	// if (keysym == 15)
-	// 	mlx->color.endr -= 100;
-	// else if (keysym == 5)
-	// 	mlx->color.endg -= 100;
-	// else if (keysym == 11)
-	// 	mlx->color.endb -= 100;
-	// else if (keysym == 17)
-	// 	mlx->color.endr += 100;
-	// else if (keysym == 4)
-	// 	mlx->color.endg += 100;
-	// else if (keysym == 45)
-	// 	mlx->color.endb += 100;
 	if (keysym == 124)
-		mlx->zoom_x -= 20 * mlx->xscale;
+		mlx->zoom_x -= 30 * mlx->xscale;
 	else if (keysym == 123)
-		mlx->zoom_x += 20 * mlx->xscale;
+		mlx->zoom_x += 30 * mlx->xscale;
 	else if (keysym == 126)
-		mlx->zoom_y += 20 * mlx->yscale;
+		mlx->zoom_y += 30 * mlx->yscale;
 	else if (keysym == 125)
-		mlx->zoom_y -= 20 * mlx->yscale;
+		mlx->zoom_y -= 30 * mlx->yscale;
 }
 
 void	hundle_mouse_event(int button, int x, int y, t_display *mlx)
